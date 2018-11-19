@@ -7,7 +7,7 @@
  */
 
 // The names and URLs to all of the feeds we'd like available.
-var allFeeds = [
+let allFeeds = [
     {
         name: 'Udacity Blog',
         url: 'http://blog.udacity.com/feed'
@@ -23,14 +23,12 @@ var allFeeds = [
     }
 ];
 
-function letTheFunBegin() {
-    return 'Begin The Fun';
-}
+
 /* This function starts up our application. The Google Feed
  * Reader API is loaded asynchonously and will then call this
  * function when the API is loaded.
  */
-function init() {
+let init = () => {
     // Load the first feed we've defined (index of 0).
     loadFeed(0);
 }
@@ -43,8 +41,8 @@ function init() {
  * This function all supports a callback as the second parameter
  * which will be called after everything has run successfully.
  */
- function loadFeed(id, cb) {
-     var feedUrl = allFeeds[id].url,
+ const loadFeed = (id, cb) => {
+     let feedUrl = allFeeds[id].url,
          feedName = allFeeds[id].name;
 
      $.ajax({
@@ -54,7 +52,7 @@ function init() {
        contentType:"application/json",
        success: function (result, status){
 
-                 var container = $('.feed'),
+                 let container = $('.feed'),
                      title = $('.header-title'),
                      entries = result.feed.entries,
                      entriesLen = entries.length,
@@ -96,7 +94,7 @@ google.setOnLoadCallback(init);
  * until the DOM is ready.
  */
 $(function() {
-    var container = $('.feed'),
+    let container = $('.feed'),
         feedList = $('.feed-list'),
         feedItemTemplate = Handlebars.compile($('.tpl-feed-list-item').html()),
         feedId = 0,
@@ -120,7 +118,7 @@ $(function() {
      * (following the link) from occurring.
      */
     feedList.on('click', 'a', function() {
-        var item = $(this);
+        let item = $(this);
 
         $('body').addClass('menu-hidden');
         loadFeed(item.data('id'));
