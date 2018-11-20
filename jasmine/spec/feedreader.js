@@ -54,11 +54,8 @@ $(function() {
 
     /* TODO: Write a new test suite named "The menu" */
     describe('The menu', function(){
-        let body;
+        let body = document.querySelector('body');;
         
-        beforeEach(function(){
-            body = document.querySelector('body');
-        })
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
