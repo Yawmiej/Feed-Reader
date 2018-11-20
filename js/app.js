@@ -41,7 +41,7 @@ let init = () => {
  * This function all supports a callback as the second parameter
  * which will be called after everything has run successfully.
  */
- const loadFeed = (id, cb) => {
+function loadFeed(id, cb) {
      let feedUrl = allFeeds[id].url,
          feedName = allFeeds[id].name;
 
