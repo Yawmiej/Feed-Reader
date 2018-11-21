@@ -90,8 +90,8 @@ $(function() {
         
         //Test after loadFeed() is run, it test to ensure HTML contains at least 
         // a feed with entry
-        it('completes work', function() {
-            expect(feed.children.length > 0).toBeTruthy();
+        it('contains feed with entry', function() {
+            expect($('.feed .entry').length).not.toBe(0);
         })
     })
 
